@@ -25,7 +25,7 @@ npm install whisper-langcode-rn
 
 Please re-run `npx pod-install` again.
 
-By default, `whisper-langcode-rn` will use pre-built `rnwhisper.xcframework` for iOS. If you want to build from source, please set `RNWHISPER_BUILD_FROM_SOURCE` to `1` in your Podfile.
+By default, `whisper.rn` will use pre-built `rnwhisper.xcframework` for iOS. If you want to build from source, please set `RNWHISPER_BUILD_FROM_SOURCE` to `1` in your Podfile.
 
 If you want to use `medium` or `large` model, the [Extended Virtual Addressing](https://developer.apple.com/documentation/bundleresources/entitlements/com_apple_developer_kernel_extended-virtual-addressing) capability is recommended to enable on iOS project.
 
@@ -34,7 +34,7 @@ If you want to use `medium` or `large` model, the [Extended Virtual Addressing](
 Add proguard rule if it's enabled in project (android/app/proguard-rules.pro):
 
 ```proguard
-## whisper-langcode-rn
+# whisper.rn
 -keep class com.rnwhisper.** { *; }
 ```
 
@@ -69,12 +69,12 @@ Add the following line to `android/app/src/main/AndroidManifest.xml`
 
 ## Tips & Tricks
 
-The [Tips & Tricks](docs/TIPS.md) document is a collection of tips and tricks for using `whisper-langcode-rn`.
+The [Tips & Tricks](docs/TIPS.md) document is a collection of tips and tricks for using `whisper.rn`.
 
 ## Usage
 
 ```js
-import { initWhisper } from 'whisper-langcode-rn'
+import { initWhisper } from 'whisper.rn'
 
 const whisperContext = await initWhisper({
   filePath: 'file://.../ggml-tiny.en.bin',
@@ -95,7 +95,7 @@ Voice Activity Detection allows you to detect speech segments in audio data usin
 #### Initialize VAD Context
 
 ```typescript
-import { initWhisperVad } from 'whisper-langcode-rn'
+import { initWhisperVad } from 'whisper.rn'
 
 const vadContext = await initWhisperVad({
   filePath: require('./assets/ggml-silero-v5.1.2.bin'), // VAD model file
@@ -166,9 +166,9 @@ await releaseAllWhisperVad()
 The new `RealtimeTranscriber` provides enhanced realtime transcription with features like Voice Activity Detection (VAD), auto-slicing, and memory management.
 
 ```js
-// If your RN packager is not enable package exports support, use whisper-langcode-rn/src/realtime-transcription
-import { RealtimeTranscriber } from 'whisper-langcode-rn/realtime-transcription'
-import { AudioPcmStreamAdapter } from 'whisper-langcode-rn/realtime-transcription/adapters'
+// If your RN packager is not enable package exports support, use whisper.rn/src/realtime-transcription
+import { RealtimeTranscriber } from 'whisper.rn/realtime-transcription'
+import { AudioPcmStreamAdapter } from 'whisper.rn/realtime-transcription/adapters'
 import RNFS from 'react-native-fs' // or any compatible filesystem
 
 // Dependencies
@@ -220,7 +220,7 @@ Please visit the [Documentation](docs/) for more details.
 You can also use the model file / audio file from assets:
 
 ```js
-import { initWhisper } from 'whisper-langcode-rn'
+import { initWhisper } from 'whisper.rn'
 
 const whisperContext = await initWhisper({
   filePath: require('../assets/ggml-tiny.en.bin'),
@@ -246,8 +246,8 @@ module.exports = {
     // ...
     assetExts: [
       ...defaultAssetExts,
-      'bin', // whisper-langcode-rn: ggml model binary
-      'mil', // whisper-langcode-rn: CoreML model asset
+      'bin', // whisper.rn: ggml model binary
+      'mil', // whisper.rn: CoreML model asset
     ],
   },
 }
@@ -312,12 +312,12 @@ Sample file: `jfk.wav` in https://github.com/ggerganov/whisper.cpp/tree/master/s
 
 Please follow the [Development Workflow section of contributing guide](./CONTRIBUTING.md#development-workflow) to run the example app.
 
-## Mock `whisper-langcode-rn`
+## Mock `whisper.rn`
 
-We have provided a mock version of `whisper-langcode-rn` for testing purpose you can use on Jest:
+We have provided a mock version of `whisper.rn` for testing purpose you can use on Jest:
 
 ```js
-jest.mock('whisper-langcode-rn', () => require('whisper-langcode-rn/jest-mock'))
+jest.mock('whisper.rn', () => require('whisper.rn/jest-mock'))
 ```
 
 ## Deprecated APIs
@@ -346,7 +346,7 @@ In iOS, You may need to change the Audio Session so that it can be used with oth
 Option 1 - Use options in transcribeRealtime:
 
 ```js
-import { AudioSessionIos } from 'whisper-langcode-rn'
+import { AudioSessionIos } from 'whisper.rn'
 
 const { stop, subscribe } = await whisperContext.transcribeRealtime({
   audioSessionOnStartIos: {
@@ -361,7 +361,7 @@ const { stop, subscribe } = await whisperContext.transcribeRealtime({
 Option 2 - Manage the Audio Session in anywhere:
 
 ```js
-import { AudioSessionIos } from 'whisper-langcode-rn'
+import { AudioSessionIos } from 'whisper.rn'
 
 await AudioSessionIos.setCategory(AudioSessionIos.Category.PlayAndRecord, [
   AudioSessionIos.CategoryOption.MixWithOthers,
