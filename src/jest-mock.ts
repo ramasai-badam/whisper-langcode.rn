@@ -8,11 +8,13 @@ if (!NativeModules.RNWhisper) {
       result: ' Test',
       segments: [{ text: ' Test', t0: 0, t1: 33 }],
       isAborted: false,
+      language: 'en',
     })),
     transcribeData: jest.fn(() => Promise.resolve({
       result: ' Test',
       segments: [{ text: ' Test', t0: 0, t1: 33 }],
       isAborted: false,
+      language: 'en',
     })),
     startRealtimeTranscribe: jest.fn((contextId, jobId) => {
       setTimeout(() => {
@@ -25,6 +27,8 @@ if (!NativeModules.RNWhisper) {
             data: {
               result: ' Test',
               segments: [{ text: ' Test', t0: 0, t1: 33 }],
+              isAborted: false,
+              language: 'en',
             },
             processTime: 100,
             recordingTime: 1000,
@@ -38,6 +42,8 @@ if (!NativeModules.RNWhisper) {
             data: {
               result: ' Test',
               segments: [{ text: ' Test', t0: 0, t1: 33 }],
+              isAborted: false,
+              language: 'en',
             },
             processTime: 100,
             recordingTime: 2000,

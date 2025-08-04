@@ -42,6 +42,7 @@ export type TranscribeResult = {
     t1: number,
   }>,
   isAborted: boolean,
+  language: string, // BCP-47 language code (e.g., 'en', 'fr', etc.)
 }
 
 export type CoreMLAsset = {

@@ -1,3 +1,14 @@
+// JNI method to get detected language code from context pointer
+extern "C" JNIEXPORT jstring JNICALL
+Java_com_rnwhisper_WhisperContext_getLanguage(JNIEnv *env, jclass clazz, jlong contextPtr) {
+    UNUSED(clazz);
+    struct whisper_context *ctx = reinterpret_cast<struct whisper_context *>(contextPtr);
+    if (!ctx) return env->NewStringUTF("und");
+    int lang_id = whisper_full_lang_id(ctx);
+    const char *lang_code = whisper_lang_str(lang_id);
+    if (!lang_code) lang_code = "und";
+    return env->NewStringUTF(lang_code);
+}
 #include <jni.h>
 #include <android/asset_manager.h>
 #include <android/asset_manager_jni.h>

@@ -1,4 +1,0 @@
-*.mlmodelc
-**/assets/*.bin
-**/assets/*.wav
-.xcode.env.local

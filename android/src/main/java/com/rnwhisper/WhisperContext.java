@@ -425,8 +425,14 @@ public class WhisperContext {
     }
     data.putString("result", builder.toString());
     data.putArray("segments", segments);
+    // Add language code from native
+    String language = getLanguage(context);
+    data.putString("language", language != null ? language : "und");
     return data;
   }
+
+  // Native method to get detected language code from context
+  private static native String getLanguage(long contextPtr);
 
 
   public boolean isCapturing() {
