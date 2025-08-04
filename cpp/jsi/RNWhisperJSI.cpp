@@ -564,6 +564,19 @@ void installJSIBindings(
                                         resultObj.setProperty(runtime, "code", Value(code));
                                         resultObj.setProperty(runtime, "result", String::createFromUtf8(runtime, createFullTextFromSegments(context, 0)));
                                         resultObj.setProperty(runtime, "segments", createSegmentsArray(runtime, context, 0));
+
+                                        // Add detected language code
+                                        int lang_id = whisper_full_lang_id(context);
+                                        const char* lang_code = nullptr;
+                                        if (lang_id >= 0) {
+                                            lang_code = whisper_lang_str(lang_id);
+                                        }
+                                        if (lang_code) {
+                                            resultObj.setProperty(runtime, "language", String::createFromUtf8(runtime, lang_code));
+                                        } else {
+                                            resultObj.setProperty(runtime, "language", Value::null());
+                                        }
+
                                         resolvePtr->call(runtime, resultObj);
                                     } else {
                                         std::string errorMsg = (code == -2) ? "Failed to create transcription job" :
