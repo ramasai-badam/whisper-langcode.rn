@@ -21,7 +21,7 @@ if ENV["RNWHISPER_DISABLE_METAL"] != "1" then
 end
 
 Pod::Spec.new do |s|
-  s.name         = "whisper-rn"
+  s.name         = "whisper-langcode-rn"
   s.version      = package["version"]
   s.summary      = package["description"]
   s.homepage     = package["homepage"]
@@ -29,7 +29,7 @@ Pod::Spec.new do |s|
   s.authors      = package["author"]
 
   s.platforms    = { :ios => "11.0", :tvos => "11.0" }
-  s.source       = { :git => "https://github.com/mybigday/whisper.rn.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/ramasai-badam/whisper-langcode.rn.git", :tag => "#{s.version}" }
 
   if ENV["RNWHISPER_BUILD_FROM_SOURCE"] == "1"
     s.source_files = "ios/**/*.{h,m,mm}", "cpp/**/*.{h,cpp,hpp,c,m,mm}"

@@ -97,4 +97,4 @@ if (!NativeModules.RNWhisper) {
   }
 }
 
-module.exports = jest.requireActual('whisper.rn/index')
+module.exports = jest.requireActual('whisper-langcode-rn/index')

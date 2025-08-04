@@ -1,10 +1,10 @@
-# whisper.rn
+# whisper-langcode-rn
 
-[![Actions Status](https://github.com/mybigday/whisper.rn/workflows/CI/badge.svg)](https://github.com/mybigday/whisper.rn/actions)
+[![Actions Status](https://github.com/ramasai-badam/whisper-langcode.rn/workflows/CI/badge.svg)](https://github.com/ramasai-badam/whisper-langcode.rn/actions)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![npm](https://img.shields.io/npm/v/whisper.rn.svg)](https://www.npmjs.com/package/whisper.rn/)
+[![npm](https://img.shields.io/npm/v/whisper-langcode-rn.svg)](https://www.npmjs.com/package/whisper-langcode-rn/)
 
-React Native binding of [whisper.cpp](https://github.com/ggerganov/whisper.cpp).
+React Native binding of [whisper.cpp](https://github.com/ggerganov/whisper.cpp) with language code detection.
 
 [whisper.cpp](https://github.com/ggerganov/whisper.cpp): High-performance inference of [OpenAI's Whisper](https://github.com/openai/whisper) automatic speech recognition (ASR) model
 
@@ -18,7 +18,7 @@ React Native binding of [whisper.cpp](https://github.com/ggerganov/whisper.cpp).
 ## Installation
 
 ```sh
-npm install whisper.rn
+npm install whisper-langcode-rn
 ```
 
 #### iOS

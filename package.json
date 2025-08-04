@@ -1,7 +1,7 @@
 {
-  "name": "whisper.rn",
+  "name": "whisper-langcode-rn",
   "version": "0.5.0-rc.6",
-  "description": "React Native binding of whisper.cpp",
+  "description": "React Native binding of whisper.cpp with language code detection",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
   "types": "lib/typescript/index.d.ts",
@@ -41,13 +41,13 @@
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "typecheck": "tsc --noEmit",
     "build": "bob build",
-    "prepack": "yarn docgen && ./scripts/build-ios.sh && yarn build",
+    "prepack": "yarn build",
     "test": "jest",
     "example": "yarn --cwd example",
     "clean": "del-cli android/build example/android/build example/android/app/build example/ios/build",
     "build:ios-frameworks": "./scripts/build-ios.sh",
     "build:ios": "cd example/ios && xcodebuild -workspace RNWhisperExample.xcworkspace -scheme RNWhisperExample -configuration Debug -sdk iphonesimulator CC=clang CPLUSPLUS=clang++ LD=clang LDPLUSPLUS=clang++ GCC_OPTIMIZATION_LEVEL=0 GCC_PRECOMPILE_PREFIX_HEADER=YES ASSETCATALOG_COMPILER_OPTIMIZATION=time DEBUG_INFORMATION_FORMAT=dwarf COMPILER_INDEX_STORE_ENABLE=NO",
-    "build:android": "cd example/android && ./gradlew assembleDebug"
+    "build:android": "cd example/android && ./gradlew assembleDebu"
   },
   "keywords": [
     "react-native",
@@ -59,13 +59,13 @@
     "whisper.cpp",
     "speech recognition"
   ],
-  "repository": "https://github.com/mybigday/whisper.rn",
-  "author": "Jhen-Jie Hong <developer@jhen.me>",
+  "repository": "https://github.com/ramasai-badam/whisper-langcode.rn",
+  "author": "Ramasai",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mybigday/whisper.rn/issues"
+    "url": "https://github.com/ramasai-badam/whisper-langcode.rn/issues"
   },
-  "homepage": "https://github.com/mybigday/whisper.rn#readme",
+  "homepage": "https://github.com/ramasai-badam/whisper-langcode.rn#readme",
   "devDependencies": {
     "@commitlint/config-conventional": "^17.0.2",
     "@evilmartians/lefthook": "^1.2.2",

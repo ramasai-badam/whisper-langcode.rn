@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "whisper.rn": ["./src/index"]
+      "whisper-langcode-rn": ["./src/index"]
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
